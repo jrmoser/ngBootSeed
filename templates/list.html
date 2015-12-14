@@ -1,0 +1,9 @@
+<div class="alert alert-success">
+
+	<h3>Todo Lists:</h3>
+	<div ng-repeat='item in ic.lists[0].items' >
+		{{item.todoItem}}
+	</div>
+	<h4>add item to list: <input ng-model="ic.item"></h4>
+	<button ng-click="ic.addItem(ic.item)">Add</button>
+</div>
