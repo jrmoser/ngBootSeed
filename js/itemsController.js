@@ -7,20 +7,23 @@
 	angular.module('itemsController', [])
 		.controller('itemsController', itemsController);
 
-	itemsController.$inject = [];
+	itemsController.$inject = ['$location'];
 
-	function itemsController() {
+	function itemsController($location) {
 
 		// list everything
 		var ic = this;
 		ic.addItem = addItem;
 		ic.removeItem = removeItem;
+		ic.listIndex = $location.url();
+		ic.listIndex = ic.listIndex.substr(ic.listIndex.length - 1);
 
+		// makes global var accessible in this controller
 		ic.lists = lists;
 
 		// define functions
 		function addItem(item) {
-			lists[0].items.push({
+			lists[ic.listIndex].items.push({
 				priority: "high",
 				todoItem: item,
 				done: false

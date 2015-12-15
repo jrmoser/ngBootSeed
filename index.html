@@ -29,8 +29,8 @@
 			<ul class="nav navbar-nav">
 				<li ng-class="{ active: nav.isActive('/home')}">
 					<a ui-sref="home">Home</a></li>
-				<li ng-class="{ active: nav.isActive('/list')}" ng-repeat="list in lc.lists">
-					<a ui-sref="list">{{list.name}}</a></li>
+				<li ng-class="{ active: nav.isActive('/list?listIndex={{$index}}')}" ng-repeat="list in lc.lists">
+					<a ui-sref="list({listIndex: {{$index}}})">{{list.name}}</a></li>
 				<li>
 					<a href="#" ng-click="lc.addList()">+</a></li>
 			</ul>

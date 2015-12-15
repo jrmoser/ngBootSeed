@@ -17,6 +17,7 @@
 		lc.addList = addList;
 		lc.removeList = removeList;
 
+		// makes global var accessible in this controller
 		lc.lists = lists;
 
 		// define functions

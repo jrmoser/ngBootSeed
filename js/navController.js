@@ -12,7 +12,7 @@
         nav.isActive = isActive;
 
         function isActive(viewLocation) {
-            return viewLocation === $location.path();
+            return viewLocation === $location.url();
         }
     }
 

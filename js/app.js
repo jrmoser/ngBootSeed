@@ -19,7 +19,7 @@
                     controller: "basicController as bc"
                 })
                 .state("list", {
-                    url: "/list",
+                    url: "/list?listIndex",
                     templateUrl: "templates/list.html",
                     controller: "itemsController as ic"
                 })

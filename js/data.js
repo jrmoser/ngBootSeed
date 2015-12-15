@@ -21,11 +21,11 @@ var lists = [
 		items: [
 			{
 				priority: "high",
-				todoItem: "item one",
+				todoItem: "item one list two",
 				done: false
 			}, {
 				priority: "high",
-				todoItem: "item two",
+				todoItem: "item two list two",
 				done: false
 			}
 		]
@@ -35,11 +35,11 @@ var lists = [
 		items: [
 			{
 				priority: "high",
-				todoItem: "item one",
+				todoItem: "item one list three",
 				done: false
 			}, {
 				priority: "high",
-				todoItem: "item two",
+				todoItem: "item two list three",
 				done: false
 			}
 		]

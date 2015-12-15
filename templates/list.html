@@ -1,7 +1,7 @@
 <div class="alert alert-success">
 
 	<h3>Todo Lists:</h3>
-	<div ng-repeat='item in ic.lists[0].items' >
+	<div ng-repeat='item in ic.lists[ic.listIndex].items' >
 		{{item.todoItem}}
 	</div>
 	<h4>add item to list: <input ng-model="ic.item"></h4>
