@@ -1,9 +1,23 @@
-<div class="alert alert-success">
+<div class="container alert alert-success">
 
 	<h3>Todo for {{ic.lists[ic.listIndex].name}}</h3>
-	<div ng-repeat='item in ic.lists[ic.listIndex].items' class="container">
-		<button class="col-xs-2 button">{{item.priority}}</button>
-		<h5 class="col-xs-10">{{item.todoItem}}</h5>
+	<h4>Sort By:
+		<select name="sortby" id="sortby" ng-model="ic.sortBy">
+			<option value="date">Date added</option>
+			<option value="priority">Priority</option>
+		</select>
+	</h4>
+	<div ng-repeat='item in ic.lists[ic.listIndex].items
+					| orderBy: ic.sortBy
+					| filter: {deleted: false}
+					| filter: {archived: false}'>
+		<a href="" ng-click="ic.removeItem(item)" class="glyphicon glyphicon-trash"
+		   ng-class="{ 'glyphicon-folder-open': item.done }"></a>
+		<input type="checkbox" ng-model="item.done"/>
+		<span ng-class="{ done: item.done}">
+			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
+			<span>{{item.todoItem}}</span>
+		</span>
 	</div>
 	<h4>add item: <input ng-model="ic.item"></h4>
 	<button ng-click="ic.addItem(ic.item, 'High')">High</button>
