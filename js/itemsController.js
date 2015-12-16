@@ -22,12 +22,22 @@
 		ic.lists = lists;
 
 		// define functions
-		function addItem(item) {
+		function addItem(item, priority) {
+			if (item === undefined) {
+				return;
+			}
+			item = item.trim();
+			if (item === ''){
+				return;
+			}
+
 			lists[ic.listIndex].items.push({
-				priority: "high",
+				priority: priority,
 				todoItem: item,
 				done: false
 			});
+
+			ic.item = undefined;
 		}
 
 		function removeItem() {

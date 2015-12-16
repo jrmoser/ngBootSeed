@@ -1,5 +1,11 @@
 <div class="alert alert-success">
-    <h3>Todo Lists:</h3>
-    <h4>add item to list: <input ng-model="bc.item"></h4>
-    <button ng-click="bc.addItem()">Clear</button>
+	<h3>Todo Lists:</h3>
+	<div ng-repeat="list in lc1.lists">
+		<h3>{{list.name}}</h3>
+		<div ng-repeat="item in list.items">
+			<h6>{{item.todoItem}}</h6>
+		</div>
+	</div>
+	<h4>add new list: <input ng-model="lc1.listName"></h4>
+	<button ng-click="lc1.addList(lc1.listName)">Add</button>
 </div>

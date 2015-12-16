@@ -1,9 +1,12 @@
 <div class="alert alert-success">
 
-	<h3>Todo Lists:</h3>
-	<div ng-repeat='item in ic.lists[ic.listIndex].items' >
-		{{item.todoItem}}
+	<h3>Todo for {{ic.lists[ic.listIndex].name}}</h3>
+	<div ng-repeat='item in ic.lists[ic.listIndex].items' class="container">
+		<button class="col-xs-2 button">{{item.priority}}</button>
+		<h5 class="col-xs-10">{{item.todoItem}}</h5>
 	</div>
-	<h4>add item to list: <input ng-model="ic.item"></h4>
-	<button ng-click="ic.addItem(ic.item)">Add</button>
+	<h4>add item: <input ng-model="ic.item"></h4>
+	<button ng-click="ic.addItem(ic.item, 'High')">High</button>
+	<button ng-click="ic.addItem(ic.item, 'Med')">Med</button>
+	<button ng-click="ic.addItem(ic.item, 'Low')">Low</button>
 </div>

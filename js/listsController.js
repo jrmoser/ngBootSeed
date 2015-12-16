@@ -7,9 +7,9 @@
 	angular.module('listsController', [])
 		.controller('listsController', listsController);
 
-	listsController.$inject = [];
+	listsController.$inject = ['$state'];
 
-	function listsController() {
+	function listsController($state) {
 
 		// list everything
 		var lc = this;
@@ -21,11 +21,28 @@
 		lc.lists = lists;
 
 		// define functions
-		function addList() {
+		function addList(listName) {
+			if (listName === undefined){
+				return;
+			}
+
 			lists.push({
-				name: "list one",
+				name: listName,
 				items: []
 			});
+
+
+			lc.name = undefined;
+
+			//wrapping the $state.go function in another function makes it possible to add list name from the nav bar
+			setTimeout( function () {
+					$state.go('^.list', {listIndex: lc.lists.length - 1});
+				}, 1
+
+			);
+
+
+
 		}
 
 		function removeList() {

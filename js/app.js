@@ -4,7 +4,6 @@
     angular.module('basicApp', [
         "ui.router",
         "navController",
-        "basicController",
 	    "itemsController",
 	    "listsController"
     ])
@@ -16,7 +15,7 @@
                 .state("home", {
                     url: "/home",
                     templateUrl: "templates/home.html",
-                    controller: "basicController as bc"
+                    controller: "listsController as lc1"
                 })
                 .state("list", {
                     url: "/list?listIndex",
@@ -29,7 +28,7 @@
                 });
 
             // if none of the above states are matched, use this as the fallback
-            $urlRouterProvider.otherwise("/home");
+            //$urlRouterProvider.otherwise("/home");
         }]);
 
 }());
