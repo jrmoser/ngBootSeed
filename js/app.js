@@ -5,7 +5,8 @@
         "ui.router",
         "navController",
 	    "itemsController",
-	    "listsController"
+	    "listsController",
+        "listService"
     ])
 
     .config(["$stateProvider", "$urlRouterProvider",

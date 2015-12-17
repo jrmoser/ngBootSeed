@@ -6,17 +6,21 @@
 			<option value="date">Date added</option>
 			<option value="priority">Priority</option>
 		</select>
+
+
 	</h4>
 	<div ng-repeat='item in ic.lists[ic.listIndex].items
 					| orderBy: ic.sortBy
 					| filter: {deleted: false}
 					| filter: {archived: false}'>
 		<a href="" ng-click="ic.removeItem(item)" class="glyphicon glyphicon-trash"
-		   ng-class="{ 'glyphicon-folder-open': item.done }"></a>
+		   ng-class="{ 'glyphicon-folder-open': item.done, 'alert-danger': !item.done }"></a>
 		<input type="checkbox" ng-model="item.done"/>
 		<span ng-class="{ done: item.done}">
 			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
-			<span>{{item.todoItem}}</span>
+			<!--http://stackoverflow.com/questions/21794575/how-to-make-a-double-click-editable-table-in-angularjs-way-->
+			<span ng-hide="item.editing" ng-click="item.editing = true">{{item.todoItem}}</span>
+			<input ng-show="item.editing" ng-focus="item.todoItem.select()" ng-model="item.todoItem" ng-blur="item.editing = false" autofocus/>
 		</span>
 	</div>
 	<h4>add item: <input ng-model="ic.item"></h4>

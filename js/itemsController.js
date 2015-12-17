@@ -40,7 +40,8 @@
 				dateAdded: new Date(),
 				archived: false,
 				dateArchived: '',
-				deleted: false
+				deleted: false,
+				editing: false
 			});
 
 			ic.item = undefined;
